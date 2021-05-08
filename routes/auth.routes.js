@@ -4,17 +4,19 @@ const router = Router();
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
+const config = require("config");
 
 module.exports = router;
 
 // api/auth/register
 router.post(
-  "/register",
+  "/sign-up",
   [
     check("email", "Invalid email").isEmail(),
     check("password", "Invalid password").isLength({ min: 8 }),
   ],
   async (req, res) => {
+    console.log(req.body);
     try {
       const errors = validationResult(req);
 
@@ -44,7 +46,7 @@ router.post(
 
 // api/auth/login
 router.post(
-  "/login",
+  "/sign-in",
   [
     check("email", "Invalid email").normalizeEmail().isEmail(),
     check("password", "Invalid password").exists(),
@@ -58,7 +60,6 @@ router.post(
           .status(400)
           .json({ errors: errors.array(), message: "Invalid data" });
       }
-
       const { email, password } = req.body;
       const user = await User.findOne({ email });
 
@@ -78,6 +79,7 @@ router.post(
 
       return res.status(200).json({ token, userId: user.id });
     } catch (e) {
+      console.log(e);
       res.status(500).json({ message: "Что-то пошло не так, сервер упал" });
     }
   }
