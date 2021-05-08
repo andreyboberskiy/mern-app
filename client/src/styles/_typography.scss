@@ -1,0 +1,116 @@
+@import 'variables';
+@import 'mixins';
+
+html {
+  font-size: $font-size-main;
+  font-family: $font-family-main;
+  letter-spacing: 0.03em;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+}
+
+.font-semi-bold {
+  font-weight: 600;
+}
+
+.font-light {
+  font-weight: 300 !important;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.font-normal {
+  font-style: normal;
+}
+
+.text-xs {
+  font-size: $font-size-xs;
+}
+
+.text-sm {
+  font-size: $font-size-small;
+}
+
+.text-lg {
+  font-size: $font-size-big;
+}
+
+.text-gray {
+  color: $gray-1;
+}
+
+.font-title {
+  @include font-title();
+}
+
+.font-main {
+  font-family: $font-family-main;
+}
+
+.link-underline {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.list-dotted {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    position: relative;
+    padding-left: spacing(2);
+    line-height: 1.6;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.6em;
+      left: 0;
+      width: 0.4em;
+      height: 0.4em;
+      border-radius: 50%;
+      background-color: $secondary-color;
+    }
+  }
+}
+
+.btn-clear {
+  padding: 0;
+  border: none;
+  background: none;
+}

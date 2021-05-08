@@ -1,0 +1,48 @@
+@import 'variables';
+
+@font-face {
+  font-family: 'Walkway Ultrabold';
+  src: url('../assets/fonts/walkwayUltraBold.ttf');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  color: $text-color;
+}
+
+body {
+  margin: 0;
+  background-color: $app-bg;
+  font-family: $font-family-title;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: $text-color;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+select,
+textarea {
+  outline: none;
+}
+
+// For prevent whitespace under these elements
+img,
+svg {
+  vertical-align: top;
+}
