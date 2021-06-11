@@ -8,7 +8,7 @@ const config = require("config");
 
 module.exports = router;
 
-// api/auth/register
+// api/auth/sign-up
 router.post(
   "/sign-up",
   [
@@ -31,7 +31,12 @@ router.post(
       const candidate = await User.findOne({ email });
 
       if (candidate) {
-        return res.status(400).json({ message: "User already exist" });
+        return res
+          .status(400)
+          .json({
+            message: "Sign up failed",
+            validation: { email: "User with this email already exist" },
+          });
       }
       const hashedPass = await bcrypt.hash(password, 12);
       const user = new User({ email, password: hashedPass });
@@ -39,7 +44,9 @@ router.post(
       await user.save();
       return res.status(201).json({ message: "User created" });
     } catch (e) {
-      res.status(500).json({ message: "Что-то пошло не так, сервер упал" });
+      res
+        .status(500)
+        .json({ message: "Что-то пошло не так, сервер упал222", error: e });
     }
   }
 );

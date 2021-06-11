@@ -1,0 +1,14 @@
+@import 'styles/variables';
+
+
+.basicTextInput{
+
+  input{
+    font-family: $font-family-main;
+    font-weight: 500;
+
+    &::placeholder{
+      color: #fff;
+    }
+  }
+}

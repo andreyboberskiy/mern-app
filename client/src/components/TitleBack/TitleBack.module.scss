@@ -1,0 +1,12 @@
+.root{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: #000;
+  font-size: 15vw;
+  max-width: 100%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  pointer-events: none;
+  font-weight: 300;
+}

@@ -11,39 +11,37 @@
 .container{
   display: flex;
   flex-direction: column;
-  background: #e57373;
+  background: $redOpacity;
   padding: 32px;
   border-radius: 30px;
   max-width: 700px;
   width: 100%;
   justify-content: center;
   align-items: center;
+  backdrop-filter: opacity(1);
+  box-shadow: 3px 9px 27px 1px rgba(34, 60, 80, 0.7);
 
   .header{
     display: flex;
     justify-content: center;
     flex: 1;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-family: $font-family-title;
+    margin-bottom: 64px;
+    font-size: 32px;
+    font-family: $font-family-main;
+    font-weight: 400;
+    color: #fff;
   }
   .formContainer{
     display: flex;
-    flex: 3;
+    max-width: 300px;
+    width: 100%;
   }
   .formInner{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    .field{
-      margin-top: 24px;
-      max-width: 300px !important;
-      width: 100% !important;
-      min-width: 300px;
-    }
+    width: 100%;
     .submitBtn{
-      margin-top: 32px;
       margin-bottom: 50px;
     }
   }

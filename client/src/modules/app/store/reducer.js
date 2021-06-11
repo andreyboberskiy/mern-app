@@ -1,4 +1,4 @@
-import { SET_INITED } from "modules/app/store/actions";
+import { SET_INITED } from "modules/app/store/constants";
 
 const initialState = {
   inited: false,

@@ -1,30 +1,35 @@
-import authServices from "modules/auth/authServices";
-import { localStorageKeys } from "localStorage/localStorageKeys";
+import authService from "modules/auth/authService";
 import { SET_USER } from "modules/auth/store/constants";
-import useLocalStorage from "localStorage/useLocalStorage";
+import { toastr } from "react-redux-toastr";
+import getterLocalStorage from "localStorage/getterLocalStorage";
+import pushSuccess from "libs/toastr/pushSuccess";
+import pushError from "libs/toastr/pushError";
 
 export const signIn = (formData) => async (dispatch) => {
-  const { getItem, setItem } = useLocalStorage();
+  const { setItem } = getterLocalStorage();
   try {
-    const { token, user } = await authServices.signIn(formData);
+    const { token, user } = await authService.signIn(formData);
 
     if (token) {
-      setItem(localStorageKeys.token, token);
+      authService.setToken(token);
     }
     dispatch({ type: SET_USER, payload: user });
   } catch (e) {
-    console.error(e);
+    pushError(e.message);
+    return e.validationErrors;
   }
 };
 
 export const signUp = (formData) => async (dispatch) => {
   try {
-    const data = await authServices.signUp(formData);
+    const { message } = await authService.signUp(formData);
 
-    if (data.statusCode === 201) {
-      console.log("Registered");
-    }
+    pushSuccess(message);
   } catch (e) {
-    console.error(e);
+    console.dir(e.errorMessage);
+    pushError(e.errorMessage);
+    return { ...e.validationErrors };
   }
 };
+
+export const initAuth = () => async (dispatch) => {};

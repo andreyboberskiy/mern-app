@@ -1,9 +1,56 @@
 @import 'variables';
 
 @font-face {
-  font-family: 'Walkway Ultrabold';
-  src: url('../assets/fonts/walkwayUltraBold.ttf');
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-ExtraBold.ttf');
+  font-weight: 800;
 }
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-SemiBold.ttf');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-Medium.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-Light.ttf');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-Thin.ttf');
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('../assets/fonts/SourceSansPro-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('../assets/fonts/SourceSansPro-SemiBold.ttf');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('../assets/fonts/SourceSansPro-Regular.ttf');
+  font-weight: 400;
+}
+
 
 * {
   box-sizing: border-box;
@@ -18,7 +65,7 @@ html {
 body {
   margin: 0;
   background-color: $app-bg;
-  font-family: $font-family-title;
+  font-family: $font-family-title !important;
 }
 
 #root {
@@ -39,6 +86,7 @@ input,
 select,
 textarea {
   outline: none;
+  font-family: $font-family-main !important;
 }
 
 // For prevent whitespace under these elements
